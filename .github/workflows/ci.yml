@@ -1,0 +1,31 @@
+name: CI for Base Contracts with Docker and K8s
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build Docker image
+        run: docker build -t base-contracts .
+      - name: Run tests in Docker
+        run: docker run base-contracts npm run test:hardhat
+      - name: Run Foundry tests
+        run: docker run base-contracts forge test
+      - name: Setup minikube
+        uses: medyagh/setup-minikube@latest
+      - name: Deploy to K8s
+        run: |
+          kubectl apply -f k8s/
+          kubectl rollout status deployment/base-anvil
+      - name: Helm lint and install
+        run: |
+          helm lint helm/charts/base-contracts/
+          helm install base-dev helm/charts/base-contracts/ --dry-run
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo "Simulated deploy to Base using Docker/K8s"

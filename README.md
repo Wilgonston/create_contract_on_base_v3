@@ -1,2 +1,31 @@
-# create_contract_on_base_v3
-create_contract_on_base_v3
+# Ultimate Base Smart Contracts Project
+
+Comprehensive suite for Base (chain ID: 8453) with ERC20/721, staking, governance, upgrades, proxies.
+
+## Docker Support
+- Build image: `docker build -t base-contracts .`
+- Run tests: `docker run base-contracts`
+- Local dev with compose: `docker-compose up dev` (starts anvil for Base simulation)
+- Test service: `docker-compose run test`
+
+## Kubernetes Support
+- Apply manifests: `kubectl apply -f k8s/` (deploys anvil pod for local Base sim)
+- Helm install: `helm install base-dev helm/charts/base-contracts/` (customizable deployment)
+- Scale: `kubectl scale deployment base-anvil --replicas=2`
+- Prerequisites: Kubernetes cluster (minikube, kind), Helm installed.
+
+## Frameworks
+- Hardhat for deployment/testing
+- Foundry for advanced testing
+
+## Setup
+1. `git submodule update --init`
+2. `npm install`
+3. For Foundry: Already in Docker, or install locally via `curl -L https://foundry.paradigm.xyz | bash`
+4. Compile: `npx hardhat compile` or `forge build`
+5. Test: `npm test` or inside Docker/K8s
+6. Deploy: Set .env and `npm run deploy:base`
+7. Lint: `npm run lint`
+
+## Changelog
+- v0.1.0: Initial setup with Docker and K8s

@@ -1,0 +1,4 @@
+apiVersion: v2
+name: base-contracts
+description: Helm chart for Base contracts dev environment
+version: 0.1.0
