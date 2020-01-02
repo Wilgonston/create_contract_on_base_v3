@@ -25,3 +25,5 @@ EXPOSE 8545
 
 # Default command: run tests
 CMD ["npm", "run", "test:hardhat"]
+# Update 5: Added layer caching for npm install
+RUN npm ci --prefer-offline
