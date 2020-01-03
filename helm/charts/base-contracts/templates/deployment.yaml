@@ -26,3 +26,11 @@ spec:
       cpu: "100m"
       memory: "256Mi"
 # Update 7: Added resource limits for K8s
+  resources:
+    limits:
+      cpu: "500m"
+      memory: "512Mi"
+    requests:
+      cpu: "100m"
+      memory: "256Mi"
+# Update 12: Added resource limits for K8s

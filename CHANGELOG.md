@@ -1,1 +1,2 @@
 - v0.2.0: Major release with K8s enhancements
+- v0.3.0: Major release with K8s enhancements
