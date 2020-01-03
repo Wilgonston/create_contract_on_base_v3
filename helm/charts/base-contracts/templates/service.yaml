@@ -11,3 +11,4 @@ spec:
       targetPort: {{ .Values.service.port }}
   type: {{ .Values.service.type }}
   type: LoadBalancer  # Update 8: Changed to LoadBalancer for external access
+  type: LoadBalancer  # Update 10: Changed to LoadBalancer for external access
