@@ -29,3 +29,4 @@ Comprehensive suite for Base (chain ID: 8453) with ERC20/721, staking, governanc
 
 ## Changelog
 - v0.1.0: Initial setup with Docker and K8s
+### K8s Update 18: Added lamkavvrzuFunc for cluster deployment
