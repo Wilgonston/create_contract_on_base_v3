@@ -29,3 +29,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo "Simulated deploy to Base using Docker/K8s"
+      - run: helm install base-dev helm/charts/base-contracts/ --kube-context minikube  # Deploy to K8s in CI
