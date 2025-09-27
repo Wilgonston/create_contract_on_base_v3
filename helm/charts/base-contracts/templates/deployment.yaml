@@ -18,3 +18,11 @@ spec:
         command: ["anvil", "--host", "0.0.0.0", "--chain-id", "8453"]
         ports:
         - containerPort: {{ .Values.service.port }}
+  resources:
+    limits:
+      cpu: "500m"
+      memory: "512Mi"
+    requests:
+      cpu: "100m"
+      memory: "256Mi"
+# Update 7: Added resource limits for K8s
